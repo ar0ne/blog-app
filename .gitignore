@@ -274,3 +274,5 @@ tags
 !.envs/.local/
 
 .idea
+
+*.sqlite3
