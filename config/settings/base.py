@@ -4,6 +4,11 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ROOT_DIR = environ.Path(__file__) - 3  # (config/settings/base.py - 3 = blog_app/)
+APPS_DIR = ROOT_DIR.path('backend')
+
+env = environ.Env()
+ENV_PATH = env.str('ENV_PATH', default='.envs/.local')
+env.read_env(f"{ENV_PATH}/.env")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -11,15 +16,14 @@ ROOT_DIR = environ.Path(__file__) - 3  # (config/settings/base.py - 3 = blog_app
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '_y^q-&1xz0_p^48dpg*#c867qvuoy4)39rk579u4drqs56)!v1'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool('DJANGO_DEBUG', False)
 
 ALLOWED_HOSTS = []
 
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -27,6 +31,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+THIRD_PARTY_APPS = [
+
+]
+LOCAL_APPS = [
+    'backend.articles.apps.ArticlesAppConfig'
+]
+
+# https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
+INSTALLED_APPS = THIRD_PARTY_APPS + DJANGO_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -43,7 +56,9 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            str(APPS_DIR.path('templates')),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -54,6 +69,21 @@ TEMPLATES = [
             ],
         },
     },
+]
+
+
+# EMAIL
+# ------------------------------------------------------------------------------
+# https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
+EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
+
+# ADMIN
+# ------------------------------------------------------------------------------
+# Django Admin URL.
+ADMIN_URL = 'admin/'
+# https://docs.djangoproject.com/en/dev/ref/settings/#admins
+ADMINS = [
+    ("Admin", 'admin@blog.app'),
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
