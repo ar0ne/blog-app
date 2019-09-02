@@ -33,6 +33,7 @@ DJANGO_APPS = [
 ]
 THIRD_PARTY_APPS = [
     'ckeditor',
+    'rest_framework',
 ]
 LOCAL_APPS = [
     'backend.articles.apps.ArticlesAppConfig'
@@ -133,3 +134,12 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     str(APPS_DIR.path('static')),
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}
+
+ADMIN_URL = 'admin/'
+
+

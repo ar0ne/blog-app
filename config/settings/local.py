@@ -11,8 +11,7 @@ DATABASES = {
     }
 }
 
-
-
+INSTALLED_APPS += ['drf_yasg']
 
 
 

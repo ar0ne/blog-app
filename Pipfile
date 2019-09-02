@@ -5,17 +5,18 @@ verify_ssl = true
 
 [dev-packages]
 mypy = "*"
-django-rest-swagger = "*"
 coverage = "*"
 django-coverage-plugin = "*"
 pytest = "*"
 pytest-django = "*"
+drf-yasg = "*"
 
 [packages]
 django = "*"
 django-environ = "*"
 django-ckeditor = "*"
 django-model-utils = "*"
+djangorestframework = "*"
 
 [requires]
 python_version = "3.7"
