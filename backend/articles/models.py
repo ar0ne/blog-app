@@ -11,8 +11,17 @@ class Article(TimeStampedModel):
     MAX_PREVIEW_TEXT_LENGTH = 250
     MAX_PREVIEW_TITLE_LENGTH = 45
 
-    title = models.CharField(max_length=150)
-    text = RichTextField()
+    title = models.CharField(
+        verbose_name=_("Title"),
+        max_length=150,
+        blank=False,
+        null=False,
+    )
+    text = RichTextField(
+        verbose_name=_("Text"),
+        blank=False,
+        null=False,
+    )
     author = ForeignKey(
         User,
         verbose_name=_("Author"),
