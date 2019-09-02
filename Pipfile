@@ -17,6 +17,8 @@ django-environ = "*"
 django-ckeditor = "*"
 django-model-utils = "*"
 djangorestframework = "*"
+djangorestframework-jwt = "*"
+django-rest-auth = {extras = ["with_social"],version = "*"}
 
 [requires]
 python_version = "3.7"

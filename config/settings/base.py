@@ -1,3 +1,4 @@
+import datetime
 import environ
 import os
 
@@ -30,10 +31,16 @@ DJANGO_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 ]
 THIRD_PARTY_APPS = [
     'ckeditor',
     'rest_framework',
+    'rest_framework.authtoken',
+    'allauth',
+    'allauth.account',
+    'rest_auth',
+    'rest_auth.registration',
 ]
 LOCAL_APPS = [
     'backend.articles.apps.ArticlesAppConfig'
@@ -81,7 +88,7 @@ EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND', default='django.core.mail.backends.s
 # ADMIN
 # ------------------------------------------------------------------------------
 # Django Admin URL.
-ADMIN_URL = 'admin/'
+ADMIN_URL = env.str('DJANGO_ADMIN_URL', default='admin/')
 # https://docs.djangoproject.com/en/dev/ref/settings/#admins
 ADMINS = [
     ("Admin", 'admin@blog.app'),
@@ -122,6 +129,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+SITE_ID = 1
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
@@ -137,9 +145,29 @@ STATICFILES_DIRS = [
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10
+    'PAGE_SIZE': 10,
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ),
 }
 
-ADMIN_URL = 'admin/'
+REST_USE_JWT = True
+
+# http://getblimp.github.io/django-rest-framework-jwt/
+JWT_AUTH = {
+    # how long the original token is valid for
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(minutes=300),
+
+    # allow refreshing of tokens
+    'JWT_ALLOW_REFRESH': True,
+
+    # this is the maximum time AFTER the token was issued that
+    # it can be refreshed. exprired tokens can't be refreshed.
+    'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(days=2)
+}
+
 
 

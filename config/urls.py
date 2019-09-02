@@ -2,13 +2,19 @@ from django.conf import settings
 from django.conf.urls import url
 from django.contrib import admin
 from django.urls import include, path
+from rest_framework_jwt.views import refresh_jwt_token, obtain_jwt_token
+
 from .routers import urlpatterns as api_urlpatterns
 from rest_framework import permissions
 
 urlpatterns = [
     path("api/v1/", include(api_urlpatterns)),
     path(settings.ADMIN_URL, admin.site.urls),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path("api/v1/auth/", include('rest_auth.urls')),
+    path("api/v1/auth/registration/", include('rest_auth.registration.urls')),
+    path("api/v1/auth/refresh_token/", refresh_jwt_token),
+    path("api/v1/auth/obtain_token/", obtain_jwt_token),
+
 ]
 
 if settings.DEBUG:
