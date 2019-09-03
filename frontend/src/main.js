@@ -2,7 +2,7 @@ import Vue from 'vue'
 import routes from './routes'
 import { NotFound } from './pages'
 
-new Vue({
+const app = new Vue({
     el: '#app',
     data: {
         currentRoute: window.location.pathname

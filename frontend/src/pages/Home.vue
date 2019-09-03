@@ -1,14 +1,20 @@
 <template>
-    <p>Hello, {{ text }} </p>
+    <main-layout>
+        <p>Hello, {{ text }} </p>
+    </main-layout>
 </template>
 
 <script>
+import mainLayout from "../layouts/MainLayout.vue"
+
 export default {
-    name: 'Home',
     data: function () {
         return {
             'text': 'World'
         }
+    },
+    components: {
+        mainLayout
     }
 }
 </script>
