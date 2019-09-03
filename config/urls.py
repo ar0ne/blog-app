@@ -14,7 +14,6 @@ urlpatterns = [
     path("api/v1/auth/registration/", include('rest_auth.registration.urls')),
     path("api/v1/auth/refresh_token/", refresh_jwt_token),
     path("api/v1/auth/obtain_token/", obtain_jwt_token),
-
 ]
 
 if settings.DEBUG:
