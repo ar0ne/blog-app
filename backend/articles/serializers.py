@@ -22,7 +22,6 @@ class ListArticleSerializer(serializers.ModelSerializer):
 
 
 class DetailsArticleSerializer(serializers.ModelSerializer):
-    author = serializers.HiddenField(default=serializers.CurrentUserDefault())
 
     class Meta:
         model = Article

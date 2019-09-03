@@ -4,10 +4,16 @@
         <div v-html="item.text"></div>
         <p>Author: {{ item.author }}</p>
         <p>Created: {{ item.created }}</p>
+        <article-card-more-btn
+            v-bind:articleId="item.id"
+        ></article-card-more-btn>
+        
     </div>
 </template>
 
 <script>
+import articleCardMoreBtn from './ArticleCardMoreBtn.vue'
+
 export default {
     props: {
         item: {
@@ -20,7 +26,10 @@ export default {
                 created: new Date().getTime(),
             })
         }
-    }    
+    },
+    components: {
+        articleCardMoreBtn
+    }
 }
 </script>
 

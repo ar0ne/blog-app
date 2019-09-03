@@ -1,9 +1,9 @@
 <template>
-    <main-layout>
-        <p>Hello, {{ text }} </p>
-        <feed></feed>
-    </main-layout>
+    <v-content>
+      <p>Home Page</p>
+    </v-content>
 </template>
+
 
 <script>
 import mainLayout from "../layouts/MainLayout.vue"

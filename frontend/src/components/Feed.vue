@@ -12,7 +12,7 @@
 import articleCard from "./ArticleCard.vue"
 
 export default {
-    data:  function () {
+    data: function () {
         return {
             articles: [
                 {
