@@ -19,7 +19,7 @@ SECRET_KEY = '_y^q-&1xz0_p^48dpg*#c867qvuoy4)39rk579u4drqs56)!v1'
 
 DEBUG = env.bool('DJANGO_DEBUG', False)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
@@ -41,6 +41,7 @@ THIRD_PARTY_APPS = [
     'allauth.account',
     'rest_auth',
     'rest_auth.registration',
+    'corsheaders',
 ]
 LOCAL_APPS = [
     'backend.articles.apps.ArticlesAppConfig'
@@ -57,6 +58,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'

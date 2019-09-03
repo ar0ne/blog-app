@@ -19,3 +19,6 @@ EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
 
 
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:9000",
+]

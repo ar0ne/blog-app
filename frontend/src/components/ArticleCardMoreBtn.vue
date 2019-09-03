@@ -10,7 +10,7 @@
 export default {
     props: {
         articleId: {
-            type: String,
+            type: Number,
             required: true,
             default: 2
         }

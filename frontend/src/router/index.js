@@ -24,7 +24,7 @@ export default new VueRouter({
         },
         {
             name: 'Article',
-            path: '/articles/:id',
+            path: '/articles/:articleId',
             props: true,
             component: Article
         },

@@ -19,6 +19,7 @@ django-model-utils = "*"
 djangorestframework = "*"
 djangorestframework-jwt = "*"
 django-rest-auth = {extras = ["with_social"],version = "*"}
+django-cors-headers = "*"
 
 [requires]
 python_version = "3.7"
