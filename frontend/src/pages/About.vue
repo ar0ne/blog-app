@@ -1,15 +1,42 @@
 <template>
-    <v-container>
-        <h1>About</h1>
+    <v-container v-if="loading">
+        <div class="text-xs-center">
+        <v-progress-circular
+            indeterminate
+            :size="150"
+            :width="8"
+            color="green">
+        </v-progress-circular>
+        </div>
+    </v-container>
+
+    <v-container v-else>
+        <pre>{{ text }}</pre>
     </v-container>
 </template>
 
 <script>
-import mainLayout from "../layouts/MainLayout.vue"
+import githubApi from '../services/GithubApi'
 
 export default {
+    data: function () {
+        return {
+            loading: true,
+            text: ''
+        }
+    },
+    mounted () {
+        githubApi.getReadme()
+        .then(response => {
+            this.text = response
+            this.loading = false
+        })
+        .catch(error => {
+            console.log(error)
+        })
+    },
     components: {
-        mainLayout
+        githubApi
     }    
 }
 </script>

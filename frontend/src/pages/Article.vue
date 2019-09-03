@@ -1,18 +1,14 @@
 <template>
-    <main-layout>
-        <div class="container">
-            <h2>{{ article.title }}</h2>
-            <p>Author: {{ article.author }}</p>
-            <p>Created: {{ article.created }}</p>
-            <p>Modified: {{ article.modified }}</p>
-            <pre v-html="article.text"></pre>
-        </div>  
-    </main-layout>  
+    <div class="container">
+        <h2>{{ article.title }}</h2>
+        <p>Author: {{ article.author }}</p>
+        <p>Created: {{ article.created }}</p>
+        <p>Modified: {{ article.modified }}</p>
+        <pre v-html="article.text"></pre>
+    </div>  
 </template>
 
 <script>
-
-import mainLayout from '../layouts/MainLayout.vue'
 
 export default {
     props: {
@@ -29,7 +25,6 @@ export default {
         }
     },
     components: {
-        mainLayout
     }
 }
 </script>

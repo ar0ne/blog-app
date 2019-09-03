@@ -1,26 +1,33 @@
 <template>
   <v-app>
-    <v-toolbar prominent dark>
-        <v-toolbar-items>
-            <v-toolbar-title class="headline">
+    <v-toolbar 
+        dense 
+        dark
+        >
+        <v-toolbar-title class="headline">
+            <v-btn
+            >
                 <router-link
                     to='/'
                     tag='span'
                     style='cursor: pointer'>
                     Home
                 </router-link>
-            </v-toolbar-title>
-            &nbsp;
+            </v-btn>
+        </v-toolbar-title>
+        &nbsp;
 
-            <v-toolbar-title class="headline">
+        <v-toolbar-title class="headline">
+            <v-btn
+            >
                 <router-link
                     to='/about'
                     tag='span'
                     style='cursor: pointer'>
                     About
                 </router-link>
-            </v-toolbar-title>
-        </v-toolbar-items>
+            </v-btn>
+        </v-toolbar-title>
     </v-toolbar>
 
      <v-content>
