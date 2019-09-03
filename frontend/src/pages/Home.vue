@@ -7,6 +7,7 @@
 <script>
 import mainLayout from "../layouts/MainLayout.vue"
 
+
 export default {
     data: function () {
         return {
