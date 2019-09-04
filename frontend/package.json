@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --hot",
-    "build": "webpack --env.NODE_ENV=production --progress --hide-modules --mode production",
+    "build": "webpack --progress --hide-modules --mode production",
     "predeploy": "npm run build"
   },
   "author": "ar0ne",
@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
+    "@babel/plugin-transform-runtime": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@vue/cli": "^3.11.0",
     "babel-loader": "^8.0.6",
