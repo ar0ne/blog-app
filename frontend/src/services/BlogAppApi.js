@@ -3,8 +3,8 @@ import axios from 'axios'
 const BASE_API_URL = 'http://localhost:8000/api/v1/'
 
 export default {
-    getAllArticles: function () {
-        return axios.get(BASE_API_URL + "articles/")
+    getArticles: function (pageNumber = '1') {
+        return axios.get(BASE_API_URL + "articles/?page=" + pageNumber)
             .then(response => {
                 return response.data
             })

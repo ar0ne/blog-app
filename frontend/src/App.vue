@@ -3,6 +3,8 @@
     <v-toolbar 
         dense 
         dark
+        fixed
+        max-height="46px"
         >
         <v-toolbar-title class="headline">
             <v-btn

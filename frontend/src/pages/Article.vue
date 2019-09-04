@@ -11,11 +11,23 @@
     </v-container>
 
     <v-container v-else class="container">
-        <h2>{{ article.title }}</h2>
-        <p>Author: {{ article.author }}</p>
-        <p>Created: {{ article.created }}</p>
-        <p>Modified: {{ article.modified }}</p>
-        <pre v-html="article.text"></pre>
+        <v-btn
+            color="white"
+        >
+            <router-link
+                to="/"
+                tag="v-btn"
+            >
+                <span>Back</span>
+            </router-link>
+        </v-btn>
+        <v-card>
+            <h2>{{ article.title }}</h2>
+            <p>Author: {{ article.author }}</p>
+            <p>Created: {{ article.created }}</p>
+            <p>Modified: {{ article.modified }}</p>
+            <pre v-html="article.text"></pre>
+        </v-card>
     </v-container>  
 </template>
 
@@ -23,6 +35,7 @@
 import blogAppApi from "../services/BlogAppApi"
 
 export default {
+    name: "Article",
     props: {
        articleId: {
             type: String,

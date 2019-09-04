@@ -1,5 +1,5 @@
 <template>
-    <div class="article-card-item">
+    <v-card class="article-card-item">
         <p>{{ item.id }}: {{ item.title }}</p>
         <div v-html="item.text"></div>
         <p>Author: {{ item.author }}</p>
@@ -7,8 +7,7 @@
         <article-card-more-btn
             v-bind:articleId="item.id"
         ></article-card-more-btn>
-        
-    </div>
+    </v-card>
 </template>
 
 <script>
@@ -35,8 +34,7 @@ export default {
 
 <style scoped>
 .article-card-item {
-    margin: 5px;
-    border-style: solid;
-    border-color: green;
+    margin: 1em;
+    padding: 1%;
 }
 </style>
