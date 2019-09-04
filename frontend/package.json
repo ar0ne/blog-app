@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --hot",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules --mode production",
+    "build": "webpack --env.NODE_ENV=production --progress --hide-modules --mode production",
     "predeploy": "npm run build"
   },
   "author": "ar0ne",
@@ -22,7 +22,6 @@
     "@babel/preset-env": "^7.5.5",
     "@vue/cli": "^3.11.0",
     "babel-loader": "^8.0.6",
-    "cross-env": "^5.2.1",
     "css-loader": "^3.2.0",
     "deepmerge": "^4.0.0",
     "fibers": "^4.0.1",
