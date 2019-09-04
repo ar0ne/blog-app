@@ -78,6 +78,6 @@ export default {
     margin-top: 0.2em;
 }
 .back-btn {
-    margin-left: 1em;
+    margin-left: 1.1em;
 }
 </style>
