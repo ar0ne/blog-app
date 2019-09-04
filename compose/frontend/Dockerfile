@@ -1,6 +1,10 @@
 FROM node:lts-alpine as build-stage
 WORKDIR /app
 COPY ./frontend/package*.json ./
+
+ENV NODE_ENV production
+ENV BASE_API_URL http://localhost:8000/api/v1/
+
 RUN npm install
 COPY ./frontend/ ./
 RUN npm run build
