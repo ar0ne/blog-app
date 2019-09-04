@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const BASE_API_URL = 'http://localhost:8000/api/v1/'
+const BASE_API_URL = process.env.BASE_API_URL || 'http://localhost:8000/api/v1/'
 
 export default {
     getArticles: function (pageNumber = '1') {
