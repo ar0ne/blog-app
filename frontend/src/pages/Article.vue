@@ -12,6 +12,7 @@
 
     <v-container v-else class="container">
         <v-btn
+            class="back-btn"
             color="white"
         >
             <router-link
@@ -21,12 +22,12 @@
                 <span>Back</span>
             </router-link>
         </v-btn>
-        <v-card>
+        <v-card class="article">
             <h2>{{ article.title }}</h2>
             <p>Author: {{ article.author }}</p>
             <p>Created: {{ article.created }}</p>
             <p>Modified: {{ article.modified }}</p>
-            <pre v-html="article.text"></pre>
+            <p v-html="article.text"></p>
         </v-card>
     </v-container>  
 </template>
@@ -70,5 +71,13 @@ export default {
 <style scoped>
 .container h2 {
     text-align:center;
+}
+.article {
+    margin: 1em;
+    padding: 1%;
+    margin-top: 0.2em;
+}
+.back-btn {
+    margin-left: 1em;
 }
 </style>

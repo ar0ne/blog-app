@@ -15,5 +15,13 @@ export default {
             .then(response => {
                 return response.data
             })
+    },
+
+    searchArticles: function (searchText) {
+        return axios.get(BASE_API_URL + "search/" + searchText)
+        .then(res => res.json())
+        .then(res => {
+            return res.data
+        })
     }
 }

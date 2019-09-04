@@ -11,6 +11,7 @@
     </v-container>
 
     <v-container v-else class="feed-container">
+        <search></search>
         <article-card
             v-for="item in articles"
             v-bind:key="item.id"
@@ -28,6 +29,7 @@
 <script>
 import articleCard from "./ArticleCard.vue"
 import blogAppApi from "../services/BlogAppApi"
+import search from "./Search.vue"
 
 export default {
     name: "Feed",
@@ -51,7 +53,8 @@ export default {
     },
     components: {
         articleCard,
-        blogAppApi
+        blogAppApi,
+        search
     },
     methods: {
         loadNextPage: function() {

@@ -4,7 +4,7 @@
         dense 
         dark
         fixed
-        max-height="46px"
+        max-height="48px"
         >
         <v-toolbar-title class="headline">
             <v-btn
