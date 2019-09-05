@@ -1,12 +1,10 @@
-import axios from 'axios'
-
-const README_URL = 'https://raw.githubusercontent.com/ar0ne/blog-app/master/readme.md'
+import axios from "axios"
+import config from "config"
 
 export default {
     getReadme() {
-        return axios.get(README_URL)
-        .then(response => {
+        return axios.get(config.README_URL).then(response => {
             return response.data
         })
-    }
+    },
 }
