@@ -25,7 +25,6 @@
 import ArticleService from "../services/ArticleService"
 
 export default {
-    name: "Article",
     props: {
        articleId: {
             type: String,

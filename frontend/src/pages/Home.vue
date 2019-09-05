@@ -9,7 +9,6 @@
     import feed from "../components/Feed.vue"
 
     export default {
-        name: "Home",
         components: {
             feed
         }
