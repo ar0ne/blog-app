@@ -7,9 +7,7 @@
 
     <v-container v-else class="container">
         <v-btn class="back-btn" color="white">
-            <router-link to="/" tag="v-btn">
-                <span>Back</span>
-            </router-link>
+            <router-link to="/" tag="v-btn">Back</router-link>
         </v-btn>
         <v-card class="article">
             <h2>{{ article.title }}</h2>
@@ -26,39 +24,38 @@ import ArticleService from "../services/ArticleService"
 
 export default {
     props: {
-       articleId: {
+        articleId: {
             type: String,
-            required: true
-        }
+            required: true,
+        },
     },
-    data: function () {
+    data: function() {
         return {
             article: {
                 type: Object,
-                default: {}
+                default: {},
             },
-            loading: true
+            loading: true,
         }
     },
-    mounted () {
+    mounted() {
         if (this.articleId) {
-            ArticleService.getArticleById(this.articleId)
-            .then(response => {
+            ArticleService.getArticleById(this.articleId).then(response => {
                 this.loading = false
                 this.article = response
             })
         }
     },
     components: {
-        ArticleService
-    }
+        ArticleService,
+    },
 }
 </script>
 
 
 <style scoped>
 .container h2 {
-    text-align:center;
+    text-align: center;
 }
 .article {
     margin: 1em;
