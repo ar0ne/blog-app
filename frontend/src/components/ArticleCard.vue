@@ -4,31 +4,29 @@
         <div v-html="item.text"></div>
         <p>Author: {{ item.author }}</p>
         <p>Created: {{ item.created }}</p>
-        <article-card-more-btn
-            v-bind:articleId="item.id"
-        ></article-card-more-btn>
+        <article-card-more-btn v-bind:articleId="item.id"></article-card-more-btn>
     </v-card>
 </template>
 
 <script>
-import articleCardMoreBtn from './ArticleCardMoreBtn.vue'
+import articleCardMoreBtn from "./ArticleCardMoreBtn.vue"
 
 export default {
     props: {
         item: {
             type: Object,
             default: () => ({
-                id: '',
-                title: '',
-                text: '',
-                author: '',
+                id: "",
+                title: "",
+                text: "",
+                author: "",
                 created: new Date().getTime(),
-            })
-        }
+            }),
+        },
     },
     components: {
-        articleCardMoreBtn
-    }
+        articleCardMoreBtn,
+    },
 }
 </script>
 

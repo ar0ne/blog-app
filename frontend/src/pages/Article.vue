@@ -1,24 +1,13 @@
 <template>
     <v-container v-if="loading">
         <div class="text-xs-center">
-        <v-progress-circular
-            indeterminate
-            :size="150"
-            :width="8"
-            color="green">
-        </v-progress-circular>
+            <v-progress-circular indeterminate :size="150" :width="8" color="green"></v-progress-circular>
         </div>
     </v-container>
 
     <v-container v-else class="container">
-        <v-btn
-            class="back-btn"
-            color="white"
-        >
-            <router-link
-                to="/"
-                tag="v-btn"
-            >
+        <v-btn class="back-btn" color="white">
+            <router-link to="/" tag="v-btn">
                 <span>Back</span>
             </router-link>
         </v-btn>
@@ -29,11 +18,11 @@
             <p>Modified: {{ article.modified }}</p>
             <p v-html="article.text"></p>
         </v-card>
-    </v-container>  
+    </v-container>
 </template>
 
 <script>
-import blogAppApi from "../services/BlogAppApi"
+import ArticleService from "../services/ArticleService"
 
 export default {
     name: "Article",
@@ -54,7 +43,7 @@ export default {
     },
     mounted () {
         if (this.articleId) {
-            blogAppApi.getArticleById(this.articleId)
+            ArticleService.getArticleById(this.articleId)
             .then(response => {
                 this.loading = false
                 this.article = response
@@ -62,7 +51,7 @@ export default {
         }
     },
     components: {
-
+        ArticleService
     }
 }
 </script>

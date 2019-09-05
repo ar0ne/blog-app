@@ -1,9 +1,5 @@
 <template>
-    <v-btn
-        :to="`articles/${articleId}`"
-    >
-    Read more
-    </v-btn>
+    <v-btn :to="`articles/${articleId}`">Read more</v-btn>
 </template>
 
 <script>
@@ -12,12 +8,11 @@ export default {
         articleId: {
             type: Number,
             required: true,
-            default: 2
-        }
-    }
+            default: 2,
+        },
+    },
 }
 </script>
 
 <style scoped>
-
 </style>
