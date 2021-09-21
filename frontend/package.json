@@ -11,7 +11,7 @@
   "author": "ar0ne",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "babel-runtime": "^6.26.0",
     "vue": "^2.6.10",
     "vue-axios": "^2.1.4",
